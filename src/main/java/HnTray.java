@@ -30,14 +30,19 @@ public final class HnTray {
     final Logger log = Logger.getAnonymousLogger();
     final TrayIcon icon = new TrayIcon(TK.createImage(HnTray.class.getResource("favicon.gif")), "HnTray");
     volatile List<Article> articles = null;
+    Frame frame;
 
     public HnTray() throws IOException, AWTException {
         icon.setImageAutoSize(true);
         icon.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
+                if (frame != null)
+                    frame.dispose();
+                frame = new Frame();
+
                 final PopupMenu menu = makeMenu();
-                final Frame frame = new Frame();
+
                 frame.add(menu);
                 frame.setUndecorated(true);
                 frame.setVisible(true);
