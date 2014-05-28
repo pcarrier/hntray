@@ -1,3 +1,5 @@
+![Screenshot](http://gcarrier.fr/hntray.png)
+
 - Lists from the front page, sorted by votes.
 - Refreshes every 5 mins.
 - Titles, votes & comments count are visible; forwards to HN.
