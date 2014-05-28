@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'shadow'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = 1.0
+
+jar { manifest { attributes 'Main-Class': 'HnTray' } }
+
+repositories { mavenCentral() }
+
+configurations { provided }
+sourceSets.main.compileClasspath += configurations.provided
+
+dependencies {
+    compile 'com.eclipsesource.minimal-json:minimal-json:0.9.1'
+    provided 'org.projectlombok:lombok:1.14.0'
+}
+
+
+
+buildscript {
+    repositories { jcenter() }
+    dependencies { classpath 'com.github.jengelman.gradle.plugins:shadow:0.8' }
+}
